@@ -1,0 +1,186 @@
+:root{
+  --bg:#dff2fb;
+  --panel:#ffffff;
+  --border:#d9e7f0;
+  --txt:#0b1220;
+  --muted:#4a6275;
+  --brand:#0a2a43;
+  --accent:#ffd24d;
+  --accent2:#79c7e6;
+  --danger:#ff5a5f;
+  --ok:#19c37d;
+  --lineBlue:#2e86ff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--txt);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+}
+.wrap{max-width:1100px;margin:0 auto;padding:18px}
+.topbar{
+  background:linear-gradient(90deg,var(--accent2),#a7dbf0);
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:14px;
+  padding:10px 14px;
+  text-align:center;
+  font-weight:900;
+  color:var(--brand);
+  margin-bottom:14px;
+}
+
+.card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:16px;
+  box-shadow:0 8px 24px rgba(8,24,40,.06);
+}
+.stack{display:flex;flex-direction:column;gap:14px}
+
+.chartWrap{
+  width:100%;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  background:#ffffff;
+  padding:12px;
+}
+canvas{display:block;width:100%;height:520px}
+
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;color:var(--muted);font-size:14px}
+.sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:8px;vertical-align:-2px}
+
+.inputs{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:14px;
+}
+@media (min-width:920px){
+  .inputs{grid-template-columns: 1fr 1fr;}
+}
+.sectionTitle{
+  font-size:15px;
+  font-weight:900;
+  color:var(--brand);
+  margin-bottom:10px;
+}
+
+.fieldRow{display:flex;gap:12px;flex-wrap:wrap}
+.field{display:flex;flex-direction:column;gap:6px;min-width:220px;flex:1}
+label{font-size:12px;color:var(--muted);font-weight:900;letter-spacing:.2px}
+input{
+  background:#f7fbfe;
+  border:1px solid var(--border);
+  color:var(--txt);
+  border-radius:12px;
+  padding:12px 12px;
+  font-size:14px;
+  outline:none;
+}
+input:focus{border-color:#8dcff0; box-shadow:0 0 0 3px rgba(121,199,230,.25)}
+
+/* Compact inputs for manufacturer table */
+.tableInput{
+  padding:7px 9px;
+  font-size:13px;
+  border-radius:10px;
+}
+
+.table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0 10px;
+  margin-top:4px;
+}
+.table th{
+  font-size:12px;
+  color:var(--muted);
+  text-align:left;
+  padding:0 10px;
+  font-weight:900;
+}
+.table td{
+  background:#f7fbfe;
+  border:1px solid var(--border);
+  padding:8px 10px;
+}
+.table tr td:first-child{border-radius:12px 0 0 12px}
+.table tr td:last-child{border-radius:0 12px 12px 0}
+.useBox{transform:scale(1.05)}
+.hint{color:var(--muted);font-size:13px;margin-top:8px}
+
+.kpi{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+  padding:14px 16px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:linear-gradient(180deg,#ffffff,#f3fbff);
+}
+.kpi .label{font-size:12px;color:var(--muted);font-weight:950;letter-spacing:.3px}
+.kpi .value{
+  font-size:54px;
+  font-weight:1000;
+  letter-spacing:-1px;
+  color:#0b0f14;
+  line-height:1;
+}
+.kpi small{font-size:18px;color:var(--muted);font-weight:900;margin-left:6px}
+.kpi .right{color:var(--muted);font-size:13px;font-weight:800}
+
+
+/* Mobile tightening */
+@media (max-width:560px){
+  .wrap{padding:12px}
+  .card{padding:12px;border-radius:14px}
+  .topbar{padding:8px 10px;border-radius:12px;margin-bottom:10px}
+
+  /* Chart */
+  canvas{height:360px}
+  .chartWrap{padding:10px}
+
+  /* Legend / text */
+  .legend{font-size:12px;gap:10px}
+  .sw{width:10px;height:10px;margin-right:6px}
+  .sectionTitle{font-size:14px;margin-bottom:8px}
+  .hint{font-size:12px}
+  label{font-size:11px}
+
+  /* Inputs: force true 100% width */
+  .fieldRow{flex-direction:column;gap:10px}
+  .field{min-width:0;flex:0 0 auto;width:100%}
+  input{width:100%;padding:10px 10px;font-size:13px;border-radius:10px}
+
+  /* Table */
+  .table{border-spacing:0 8px}
+  .table th{font-size:11px;padding:0 8px}
+  .table td{padding:7px 8px}
+  .tableInput{width:100%;padding:6px 8px;font-size:12px}
+
+  /* KPI */
+  .kpi{padding:12px 12px}
+  .kpi .value{font-size:44px}
+  .kpi small{font-size:16px}
+}
+.card{padding:12px;border-radius:14px}
+  .topbar{padding:8px 10px;border-radius:12px;margin-bottom:10px}
+  canvas{height:360px}
+  .legend{font-size:12px;gap:10px}
+  .sw{width:10px;height:10px;margin-right:6px}
+  .sectionTitle{font-size:14px;margin-bottom:8px}
+  .hint{font-size:12px}
+  label{font-size:11px}
+  input{padding:10px 10px;font-size:13px;border-radius:10px}
+  .field{min-width:0;flex:1 1 100%}
+  .table{border-spacing:0 8px}
+  .table th{font-size:11px;padding:0 8px}
+  .table td{padding:7px 8px}
+  .tableInput{padding:6px 8px;font-size:12px}
+  .kpi .value{font-size:44px}
+  .kpi small{font-size:16px}
+}
